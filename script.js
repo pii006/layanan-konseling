@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const emergencyBtn = document.querySelector('.emergency-btn');
   if (emergencyBtn) {
     emergencyBtn.addEventListener('click', () => {
-      showPopup("🚨 Layanan Darurat 24 Jam\n\nNomor Telepon: 119\nWhatsApp: 0811-222-3333\n\nSegera hubungi jika Anda membutuhkan bantuan darurat.");
+      showPopup("🚨 Layanan Darurat 24 Jam\n\nNomor Telepon: 119\nSegera hubungi jika Anda membutuhkan bantuan darurat.");
     });
   }
 

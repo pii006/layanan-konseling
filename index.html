@@ -92,7 +92,7 @@
         Kami menyediakan layanan konseling secara <em>online</em> dengan berbagai pendekatan sesuai kebutuhan Anda.
       </div>
       <div class="info-kontak">
-        Kontak: <a href="mailto:psikolog@layanan.id">psikolog@layanan.id</a>
+        Kontak Email: <a href="mailto:kelompok4@layanan.id">kelompok4@layanan.id</a>
       </div>
     </section>
 
@@ -100,9 +100,10 @@
       <label for="konselor">Pilih Konselor:</label>
       <select id="konselor">
         <option disabled selected>Pilih salah satu</option>
-        <option>Dr. Sinta Wahyuni, M.Psi</option>
-        <option>Andi Firmansyah, S.Psi</option>
-        <option>Nadia Pratiwi, M.Psi</option>
+        <option>Dr. Muttaqin, M.Psi</option>
+        <option>Pradipa, S.Psi</option>
+        <option>Zahra, M.Psi</option>
+        <option>Yugiarso, M.Psi</option>
       </select>
     </section>
 
@@ -110,16 +111,22 @@
       <h2>Jadwal Tersedia</h2>
       <div class="schedule-box">
         <form id="jadwalForm">
-          <label><input type="checkbox" name="jadwal" value="Senin 10:00" /> Senin, 10:00</label>
-          <label><input type="checkbox" name="jadwal" value="Selasa 14:00" /> Selasa, 14:00</label>
-          <label><input type="checkbox" name="jadwal" value="Rabu 09:00" /> Rabu, 09:00</label>
-          <label><input type="checkbox" name="jadwal" value="Kamis 16:00" /> Kamis, 16:00</label>
+          <label><input type="checkbox" name="jadwal" value="Senin 10:00" /> Senin, 10:00-12:00</label>
+          <label><input type="checkbox" name="jadwal" value="Selasa 14:00" /> Selasa, 14:00-16:00</label>
+          <label><input type="checkbox" name="jadwal" value="Rabu 10:00" /> Rabu, 10:00-12:00</label>
+          <label><input type="checkbox" name="jadwal" value="Kamis 20:00" /> Kamis, 20:00-22:00</label>
+          <label><input type="checkbox" name="jadwal" value="Jumat 20:00" /> Jumat, 20:00-22:00</label>
           <button type="submit">Pesan Jadwal</button>
           <div id="feedback"></div>
         </form>
       </div>
     </section>
-
+   <div class="verification-box" tabindex="0" role="button" aria-pressed="false" 
+         onclick="window.location.href='https://pii006.github.io/konfirmasi-jadwal/'" 
+         onkeypress="if(event.key === 'Enter' || event.key === ' ') window.location.href='https://pii006.github.io/konfirmasi-jadwal/'">
+      Verifikasi Sesi
+    </div>
+</section>
     <section class="procedure-section">
       <h2>Prosedur Konseling</h2>
       <ol>
@@ -133,8 +140,8 @@
     <section class="testimonial-section">
       <h2>Pengguna Jasa Konseling</h2>
       <blockquote>
-        "Sesi konseling dengan Bu Sinta benar-benar membantu saya lebih memahami diri sendiri."
-        <footer>– Naya, 18 tahun</footer>
+        "Sesi konseling di sini benar-benar membantu saya lebih memahami diri sendiri."
+        <footer>– Tika, 18 tahun</footer>
       </blockquote>
       <blockquote>
         "Saya merasa jauh lebih baik setelah menjalani konseling secara rutin. Terima kasih!"
@@ -150,7 +157,7 @@
       </details>
       <details>
         <summary>Bisakah saya membatalkan jadwal?</summary>
-        <p>Bisa, cukup kirimkan email ke kami dibagian kontak paling lambat 24 jam sebelum sesi.</p>
+        <p>Bisa, cukup kirimkan email ke kami dibagian kontak paling lambat 2 jam sebelum sesi.</p>
       </details>
     </section>
 
@@ -164,7 +171,8 @@
     </section>
 
     <footer class="site-footer">
-      <p>&copy; 2025 Layanan Konseling. All rights reserved.</p>
+      <p>&copy; 2025 Kelompok 4</p>
+      <p>All rights reserved.</p>
       <div class="footer-nav">
         <a href="#">Beranda</a> |
         <a href="#">Privasi</a> |
