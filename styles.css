@@ -1,0 +1,715 @@
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #1d3557;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
+    color: #1d3557;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Container Card */
+.container {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 720px;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    padding: 50px 60px;
+    transition: all 0.4s ease, color 0.5s ease, background 0.5s ease;
+    will-change: transform, box-shadow;
+}
+
+/* Hover 3D effect */
+.container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: perspective(1000px) rotateX(1deg) rotateY(-1deg);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Headers */
+h1, h2 {
+    color: #1d3557;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1.2px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #2a4365;
+    transition: color 0.5s ease;
+}
+
+a {
+    color: #3a86ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: #1e4db7;
+    text-decoration: underline;
+}
+
+/* Header & Info */
+header p {
+    font-size: 1.25rem;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+/* Extra Info Section */
+.extra-info {
+    border-top: 3px solid #3a86ff;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1rem;
+    color: #264653;
+    transition: color 0.5s ease;
+}
+
+.info-layanan, .info-kontak {
+    font-weight: 600;
+}
+
+.info-layanan em {
+    color: #3a86ff;
+    font-style: italic;
+}
+
+/* Konselor Pilihan */
+.pilihan-konselor {
+    display: flex;
+    flex-direction: column;
+    max-width: 340px;
+    margin: 0 auto 20px auto;
+}
+
+.pilihan-konselor label {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #264653;
+    transition: color 0.5s ease;
+}
+
+.pilihan-konselor select {
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 2px solid #3a86ff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: white;
+    color: #1d3557;
+    box-shadow: 0 3px 8px rgba(58, 134, 255, 0.15);
+}
+
+.pilihan-konselor select:hover,
+.pilihan-konselor select:focus {
+    border-color: #1e4db7;
+    box-shadow: 0 0 12px rgba(30, 77, 183, 0.6);
+    outline: none;
+}
+
+/* Jadwal Booking Section */
+.booking-section {
+    margin-top: 60px;
+}
+
+.schedule-box {
+    background: rgba(241, 246, 249, 0.95);
+    border: 2px solid #3a86ff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(58, 134, 255, 0.25);
+    padding: 30px 28px;
+    max-width: 460px;
+    margin: 0 auto 24px;
+    opacity: 0;
+    animation: fadeInPulse 1.3s ease forwards;
+}
+
+@keyframes fadeInPulse {
+    0% { opacity: 0; transform: scale(0.96); }
+    50% { opacity: 0.8; transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Form and Labels */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    accent-color: #3a86ff;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 8px #3a86ff;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    align-self: center;
+    background: linear-gradient(to right, #3a86ff, #1e4db7);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(30, 77, 183, 0.4);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+button:hover,
+button:focus {
+    background: #1e4db7;
+    box-shadow: 0 10px 28px rgba(29, 61, 176, 0.6);
+    outline: none;
+    transform: scale(1.05);
+}
+
+/* Feedback messages */
+#feedback, #anonFeedback {
+    margin-top: 14px;
+    text-align: center;
+    font-weight: 600;
+    min-height: 28px;
+    transition: color 0.3s ease;
+}
+
+/* Section Styling: Prosedur, Testimoni, FAQ */
+.procedure-section {
+    margin-top: 60px;
+    color: #2a4365;
+    transition: color 0.5s ease;
+}
+
+.procedure-section ol {
+    max-width: 620px;
+    margin: 0 auto;
+    padding-left: 24px;
+    line-height: 1.7;
+}
+
+.testimonial-section {
+    margin-top: 60px;
+    color: #264653;
+    transition: color 0.5s ease;
+}
+
+.testimonial-section blockquote {
+    background: #e0e9f6;
+    border-left: 6px solid #3a86ff;
+    padding: 20px 26px;
+    margin: 0 auto 24px;
+    border-radius: 14px;
+    font-style: italic;
+    box-shadow: 0 6px 14px rgba(58, 134, 255, 0.2);
+    max-width: 640px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-section blockquote:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 26px rgba(58, 134, 255, 0.3);
+}
+
+.testimonial-section footer {
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* FAQ styling */
+.faq-section {
+    margin-top: 60px;
+    color: #2a4365;
+    transition: color 0.5s ease;
+}
+
+.faq-section details {
+    background: #f1f6fa;
+    border-left: 5px solid #3a86ff;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(58, 134, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.faq-section details:hover {
+    background: #e8f1fd;
+    transform: translateY(-2px);
+}
+
+.faq-section summary {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Pesan Anonim Section */
+.anon-section {
+    margin-top: 60px;
+}
+
+.anon-section textarea {
+    width: 100%;
+    border: 2px solid #3a86ff;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 140px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    color: #1d3557;
+    background: white;
+}
+
+.anon-section textarea:focus {
+    border-color: #1e4db7;
+    box-shadow: 0 0 10px rgba(29, 77, 183, 0.3);
+    outline: none;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #264653;
+    border-top: 2px solid #3a86ff;
+    padding-top: 20px;
+    transition: color 0.5s ease;
+}
+
+.footer-nav a {
+    margin: 0 8px;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 30px 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .schedule-box,
+    .testimonial-section blockquote,
+    .procedure-section ol {
+        max-width: 100%;
+    }
+}
+
+/* Popup Styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #1d3557;
+    max-width: 90%;
+    white-space: pre-line;
+    animation: popupFadeIn 0.4s ease forwards;
+}
+
+@keyframes popupFadeIn {
+    from {opacity: 0; transform: translate(-50%, -60%);}
+    to {opacity:1; transform: translate(-50%, -50%);}
+}
+
+.popup-close {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.popup-close:hover {
+    background-color: #1e4db7;
+}
+
+/* Floating Buttons */
+.floating-buttons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.floating-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.floating-btn:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.emergency-btn {
+    background: rgba(230, 57, 70, 0.9);
+    color: white;
+}
+
+.chat-btn {
+    background: rgba(42, 157, 143, 0.9);
+    color: white;
+}
+
+.theme-btn {
+    background: rgba(29, 53, 87, 0.9);
+    color: white;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%);
+    color: #f8f9fa;
+}
+
+body.dark-mode .container {
+    background: rgba(13, 27, 42, 0.95);
+    color: #f8f9fa;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p,
+body.dark-mode .info-layanan,
+body.dark-mode .info-kontak,
+body.dark-mode .procedure-section,
+body.dark-mode .testimonial-section,
+body.dark-mode .faq-section,
+body.dark-mode .site-footer,
+body.dark-mode .pilihan-konselor label,
+body.dark-mode .extra-info {
+    color: #f8f9fa;
+}
+
+body.dark-mode a {
+    color: #8ab4f8;
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+    color: #aecbfa;
+}
+
+body.dark-mode .schedule-box {
+    background: rgba(26, 42, 58, 0.95);
+    border-color: #457b9d;
+    box-shadow: 0 8px 24px rgba(69, 123, 157, 0.4);
+}
+
+body.dark-mode .pilihan-konselor select {
+    background: #0d1b2a;
+    color: #f8f9fa;
+    border-color: #3a86ff;
+    box-shadow: none;
+}
+
+body.dark-mode .pilihan-konselor select:hover,
+body.dark-mode .pilihan-konselor select:focus {
+    border-color: #aecbfa;
+    box-shadow: 0 0 10px rgba(174,203,250,0.5);
+    outline: none;
+}
+
+body.dark-mode .testimonial-section blockquote {
+    background: #1a2a3a;
+    border-left-color: #457b9d;
+    box-shadow: 0 6px 14px rgba(69, 123, 157, 0.3);
+}
+
+body.dark-mode .faq-section details {
+    background: #1a2a3a;
+    border-left-color: #457b9d;
+    box-shadow: 0 4px 12px rgba(69, 123, 157, 0.2);
+}
+
+body.dark-mode .anon-section textarea {
+    background: #1a2a3a;
+    color: #f8f9fa;
+    border-color: #457b9d;
+}
+
+body.dark-mode select,
+body.dark-mode input[type="checkbox"] {
+    filter: none;
+}
+
+/* Decoration Corners */
+.decoration-corner {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    border-width: 8px;
+    border-style: solid;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    border-color: #3a86ff transparent transparent #3a86ff;
+    border-radius: 0 0 100% 0;
+    animation: pulseBorder 3s infinite alternate;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    border-color: #3a86ff #3a86ff transparent transparent;
+    border-radius: 0 0 0 100%;
+    animation: pulseBorder 3s infinite alternate ease-in-out;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-color: transparent transparent #3a86ff #3a86ff;
+    border-radius: 0 100% 0 0;
+    animation: pulseBorder 3s infinite alternate ease-in;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-color: transparent #3a86ff #3a86ff transparent;
+    border-radius: 100% 0 0 0;
+    animation: pulseBorder 3s infinite alternate ease-out;
+}
+
+@keyframes pulseBorder {
+    0% {opacity: 0.1;}
+    50% {opacity: 0.3;}
+    100% {opacity: 0.1;}
+}
+
+/* Floating Shapes */
+.floating-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+    will-change: transform;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #e63946;
+    top: 20%;
+    left: 10%;
+    animation: float 15s infinite ease-in-out;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid #2a9d8f;
+    top: 60%;
+    right: 15%;
+    animation: float 12s infinite ease-in-out reverse;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    background: #1d3557;
+    bottom: 15%;
+    left: 20%;
+    animation: float 18s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) rotate(10deg);
+    }
+}
+
+/* Animate floating buttons */
+.floating-btn {
+    animation: bob 4s ease-in-out infinite;
+}
+
+.floating-btn:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.floating-btn:nth-child(3) {
+    animation-delay: 3s;
+}
+
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  z-index: 10000;
+  max-width: 320px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: Arial, sans-serif;
+}
+
+body.dark-mode .popup {
+  background: #333;
+  color: #eee;
+}
+
+.popup-close {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-close:focus {
+  outline: 2px solid #2a9d8f;
+  outline-offset: 2px;
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Layanan Konseling</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .loading-screen {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s;
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .spinner-circle {
+      width: 48px;
+      height: 48px;
+      border: 6px solid #b3b3ff;
+      border-top: 6px solid #5a5aff;
+      border-radius: 50%;
+      animation: spinFade 1.2s linear infinite;
+      box-sizing: border-box;
+    }
+    @keyframes spinFade {
+      0% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: rotate(180deg);
+        opacity: 0.3;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 1;
+      }
+    }
+    .loading-text {
+      font-size: 1.2rem;
+      color: #444;
+      letter-spacing: 1px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-screen" id="loadingScreen" aria-label="Memuat halaman">
+    <div class="spinner">
+      <div class="spinner-circle"></div>
+    </div>
+    <span class="loading-text">Memuat...</span>
+  </div>
+
+  <div class="floating-buttons">
+    <button class="floating-btn emergency-btn" title="Darurat">🆘</button>
+    <button class="floating-btn chat-btn" title="Chat Cepat">💬</button>
+    <button class="floating-btn theme-btn" title="Ganti Tema">🌓</button>
+  </div>
+
+  <div class="decoration-corner top-left"></div>
+  <div class="decoration-corner top-right"></div>
+  <div class="decoration-corner bottom-left"></div>
+  <div class="decoration-corner bottom-right"></div>
+
+  <div class="floating-shapes">
+    <div class="shape circle"></div>
+    <div class="shape triangle"></div>
+    <div class="shape square"></div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Layanan Konseling</h1>
+      <p>Mari berbicara dengan konselor terbaik kami, untuk mendukung kesehatan mental Anda.</p>
+    </header>
+
+    <section class="extra-info">
+      <div class="info-layanan">
+        Kami menyediakan layanan konseling secara <em>online</em> dengan berbagai pendekatan sesuai kebutuhan Anda.
+      </div>
+      <div class="info-kontak">
+        Kontak: <a href="mailto:psikolog@layanan.id">psikolog@layanan.id</a>
+      </div>
+    </section>
+
+    <section class="pilihan-konselor">
+      <label for="konselor">Pilih Konselor:</label>
+      <select id="konselor">
+        <option disabled selected>Pilih salah satu</option>
+        <option>Dr. Sinta Wahyuni, M.Psi</option>
+        <option>Andi Firmansyah, S.Psi</option>
+        <option>Nadia Pratiwi, M.Psi</option>
+      </select>
+    </section>
+
+    <section class="booking-section">
+      <h2>Jadwal Tersedia</h2>
+      <div class="schedule-box">
+        <form id="jadwalForm">
+          <label><input type="checkbox" name="jadwal" value="Senin 10:00" /> Senin, 10:00</label>
+          <label><input type="checkbox" name="jadwal" value="Selasa 14:00" /> Selasa, 14:00</label>
+          <label><input type="checkbox" name="jadwal" value="Rabu 09:00" /> Rabu, 09:00</label>
+          <label><input type="checkbox" name="jadwal" value="Kamis 16:00" /> Kamis, 16:00</label>
+          <button type="submit">Pesan Jadwal</button>
+          <div id="feedback"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="procedure-section">
+      <h2>Prosedur Konseling</h2>
+      <ol>
+        <li>Pilih konselor yang Anda inginkan.</li>
+        <li>Centang jadwal yang tersedia dan klik "Pesan Jadwal".</li>
+        <li>Kami akan mengirimkan kode pemesanan khusus.</li>
+        <li>Lakukan sesi konseling sesuai jadwal menggunakan kode pemesanan khusus.</li>
+      </ol>
+    </section>
+
+    <section class="testimonial-section">
+      <h2>Pengguna Jasa Konseling</h2>
+      <blockquote>
+        "Sesi konseling dengan Bu Sinta benar-benar membantu saya lebih memahami diri sendiri."
+        <footer>– Naya, 18 tahun</footer>
+      </blockquote>
+      <blockquote>
+        "Saya merasa jauh lebih baik setelah menjalani konseling secara rutin. Terima kasih!"
+        <footer>– Rendra, 19 tahun</footer>
+      </blockquote>
+    </section>
+
+    <section class="faq-section">
+      <h2>Pertanyaan Umum</h2>
+      <details>
+        <summary>Apakah konseling ini berbayar?</summary>
+        <p>Tidak, layanan ini 100% gratis dan tidak dipungut biaya sama sekali. </p>
+      </details>
+      <details>
+        <summary>Bisakah saya membatalkan jadwal?</summary>
+        <p>Bisa, cukup kirimkan email ke kami dibagian kontak paling lambat 24 jam sebelum sesi.</p>
+      </details>
+    </section>
+
+    <section class="anon-section">
+      <h2>Kirim Pesan Anonim</h2>
+      <form id="anonForm">
+        <textarea placeholder="Tulis pesan Anda secara anonim..."></textarea>
+        <button type="submit">Kirim</button>
+        <div id="anonFeedback"></div>
+      </form>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Layanan Konseling. All rights reserved.</p>
+      <div class="footer-nav">
+        <a href="#">Beranda</a> |
+        <a href="#">Privasi</a> |
+        <a href="#">Kontak</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
