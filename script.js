@@ -7,6 +7,26 @@ function generateKodePemesanan() {
   return `${prefix}-${timestamp}-${randomPart}`;
 }
 
+/// script.js
+function showLoadingScreen() {
+  const loadingScreen = document.createElement("div");
+  loadingScreen.className = "loading-screen";
+  loadingScreen.innerHTML = `
+    <div class="loading-balls">
+      <div class="loading-ball"></div>
+      <div class="loading-ball"></div>
+      <div class="loading-ball"></div>
+    </div>
+    <div class="loading-bar-container">
+      <div class="loading-bar"></div>
+    </div>
+    <h1>Loading...</h1>
+    <p>Mohon tunggu sebentar.</p>
+  `;
+  document.body.appendChild(loadingScreen);
+}
+
+
 // Fungsi pop-up sederhana
 function showPopup(message) {
   const popup = document.createElement("div");
